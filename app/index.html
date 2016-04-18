@@ -3,9 +3,12 @@
 <head>
 <title>Todos App</title>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular.min.js'></script>
-<script src='app.js' type='text/javascript'></script>
+<script src='js/app.js' type='text/javascript'></script>
+<script src='controllers/ToDoController.js' type='text/javascript'></script>
 </head>
 <body>
-  Hello World!
+  <div ng-controller="ToDoController as ctrl">
+    {{ ctrl.toDo }}
+  </div>
 </body>
 </html>
