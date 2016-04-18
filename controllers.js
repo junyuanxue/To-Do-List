@@ -1,6 +1,6 @@
-toDoApp.controller('ToDoController', ["toDoFactory", function(toDoFactory) {
+toDoApp.controller('ToDoController', ['toDoFetcher',"toDoFactory", function(toDoFetcher, toDoFactory) {
 
-  this.todos = [];
+  this.todos = toDoFetcher.index();
 
   this.addToDo = function (toDoText) {
     this.todos.push(new ToDo(toDoText));
