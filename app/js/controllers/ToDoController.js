@@ -1,3 +1,16 @@
 toDoApp.controller('ToDoController', [function () {
-  this.toDo = "Feck off Protractor!";
+  var self = this;
+
+  this.toDos = [
+    { text: "Feck off Protractor!", completed: true },
+    { text: "Feck off Karma!", completed: false }
+  ];
+
+  self.addToDo = function (toDoText) {
+    self.toDos.push({ text: toDoText, completed: false });
+  };
+
+  self.removeToDo = function () {
+    self.toDos.pop();
+  };
 }]);
