@@ -9,7 +9,9 @@
   <body>
 
     <div ng-controller='ToDoController as controller'>
-      {{controller.todo}}
+      <li ng-repeat="todo in controller.todos">
+        <p>{{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}</p>
+      </li>
     </div>
 
   </body>

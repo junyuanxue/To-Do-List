@@ -1,3 +1,5 @@
 toDoApp.controller('ToDoController', function() {
-  this.todo = "ToDo1";
+  this.todos = [
+    { text: "Throw away banana", completed: true },
+    { text: "Squash pineapple", completed: false }];
 });
