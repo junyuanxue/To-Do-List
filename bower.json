@@ -1,0 +1,21 @@
+{
+  "name": "angular-week",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Junyuan Xue <junyuanxue.is@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/junyuanxue/angular-week",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
+}
