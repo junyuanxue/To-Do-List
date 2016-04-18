@@ -11,7 +11,15 @@
     <div ng-controller='ToDoController as controller'>
       <li ng-repeat="todo in controller.todos">
         <p>{{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}</p>
+        <input type="checkbox" ng-model='todo.completed'>
       </li>
+
+      <form ng-submit='controller.addToDo()'>
+        <input type="text" ng-model='controller.toDoText' placeholder="Add ToDo">
+        </tbody>
+        <input type="submit" value="add">
+        <button ng-click='controller.removeToDo()'>Remove ToDo</button>
+      </form>
     </div>
 
   </body>
