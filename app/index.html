@@ -8,7 +8,14 @@
   </head>
   <body>
     <div id="toDo" ng-controller="ToDoController as ctrl">
-      {{ ctrl.toDo }}
+      <ul>
+        <li ng-repeat="toDo in ctrl.toDos">
+          {{ toDo.text }}: {{ toDo.completed ? "completed" : "not completed" }}
+        </li>
+      </ul>
+      <input id="new-todo-text" ng-model="toDoText">
+      <button id="add-todo" ng-click="ctrl.addToDo(toDoText);">Add Todo</button>
+      <button id="remove-todo" ng-click="ctrl.removeToDo();">Remove Last Todo</button>
     </div>
   </body>
 </html>
