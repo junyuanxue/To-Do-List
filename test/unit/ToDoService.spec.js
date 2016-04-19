@@ -3,7 +3,8 @@ describe("ToDoService", function () {
 
   var ToDoService, httpBackend;
 
-  var toDoData = [{text: "To Do 1", completed: true}, {text: "To Do 2", completed: false}];
+  var toDoData = [{ text: "To Do 1", completed: true},
+                  {text: "To Do 2", completed: false }];
 
   beforeEach(inject(function(_ToDoService_, _ToDoFactory_, $httpBackend) {
     ToDoService = _ToDoService_;

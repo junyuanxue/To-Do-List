@@ -3,7 +3,7 @@ describe("ToDoFactory", function() {
 
   var toDo;
 
-  beforeEach(inject(function(ToDoFactory){
+  beforeEach(inject(function(ToDoFactory) {
     toDo = new ToDoFactory("New Task");
   }));
 
@@ -19,5 +19,4 @@ describe("ToDoFactory", function() {
     toDo.complete();
     expect(toDo.completed).toBe(true);
   });
-
 });

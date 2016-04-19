@@ -2,7 +2,8 @@ describe("ToDoController", function() {
   beforeEach(module("ToDoApp"));
 
   var ctrl, ToDoFactory, httpBackend;
-  var toDoData = [{text: "To Do 1", completed: true}, {text: "To Do 2", completed: false}];
+  var toDoData = [{text: "To Do 1", completed: true},
+                  {text: "To Do 2", completed: false}];
 
   beforeEach(inject(function($httpBackend, $controller, _ToDoFactory_) {
     ctrl = $controller("ToDoController");
@@ -31,5 +32,4 @@ describe("ToDoController", function() {
     ctrl.removeToDo();
     expect(ctrl.toDos.length).toEqual(initialCount - 1);
   });
-
 });

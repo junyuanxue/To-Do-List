@@ -8,7 +8,8 @@ describe("Todos tracker", function() {
         method: "GET"
       },
       response: {
-        data: [{text: "To Do 1", completed: true}, {text: "To Do 2", completed: false}]
+        data: [{ text: "To Do 1", completed: true},
+               {text: "To Do 2", completed: false }]
       }
     }]);
   });
