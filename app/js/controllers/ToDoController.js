@@ -1,4 +1,4 @@
-ToDoApp.controller('ToDoController', [function() {
+ToDoApp.controller('ToDoController', ['ToDoFactory', function(ToDoFactory) {
   var self = this;
 
   self.toDos = [
