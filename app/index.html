@@ -1,12 +1,14 @@
-<html ng-app="toDoApp">
+<html ng-app="ToDoApp">
   <head>
     <meta charset="utf-8">
     <title>Todos App</title>
     <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="./js/controllers/ToDoController.js"></script>
     <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/controllers/ToDoController.js"></script>
   </head>
   <body>
-
+    <div id="toDo" ng-controller="ToDoController as ctrl">
+      {{ ctrl.toDo }}
+    </div>
   </body>
 </html>

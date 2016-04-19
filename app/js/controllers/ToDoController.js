@@ -1,3 +1,3 @@
-toDoApp.controller('ToDoController', [function() {
-  this.todo = "ToDo1";
+ToDoApp.controller('ToDoController', [function() {
+  this.toDo = "ToDo1";
 }]);

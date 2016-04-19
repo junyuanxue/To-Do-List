@@ -1,5 +1,5 @@
 describe('ToDoController', function() {
-  beforeEach(module('toDoApp'));
+  beforeEach(module('ToDoApp'));
 
   var ctrl;
 
