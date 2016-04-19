@@ -8,10 +8,11 @@
     <script type="text/javascript" src="./js/factories/ToDoFactory.js"></script>
   </head>
   <body>
-    <div id="toDo" ng-controller="ToDoController as ctrl">
+    <div id="todos" ng-controller="ToDoController as ctrl">
       <ul>
         <li ng-repeat="toDo in ctrl.toDos">
           {{ toDo.text }}: {{ toDo.completed ? "completed" : "not completed" }}
+          <input type="checkbox" class="complete" ng-click="toDo.complete();">
         </li>
       </ul>
       <input id="new-todo-text" ng-model="toDoText">

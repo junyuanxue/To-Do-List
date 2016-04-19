@@ -11,12 +11,12 @@ describe('ToDoFactory', function() {
   });
 
   it('is not completed by default', function() {
-    expect(toDo.completed).toEqual(false);
+    expect(toDo.completed).toBe(false);
   });
 
   it('completes the task', function() {
     toDo.complete();
-    expect(toDo.completed).toEqual(true);
+    expect(toDo.completed).toBe(true);
   });
 
 });
