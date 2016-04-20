@@ -1,17 +1,19 @@
-toDoApp.controller('ToDoController', ['$http', 'ToDoService', 'ToDoFactory', function($http, ToDoService, ToDoFactory) {
-  var self = this;
+angular
+  .module("toDoApp")
+  .controller("ToDoController", ["$http", "ToDoService", "ToDoFactory", function($http, ToDoService, ToDoFactory) {
+    var self = this;
 
-  self.todos = [];
+    self.todos = [];
 
-  ToDoService.getAll().then(function(toDoData) {
-    self.todos = toDoData;
-  });
+    ToDoService.getAll().then(function(toDoData) {
+      self.todos = toDoData;
+    });
 
-  self.addToDo = function(toDoText) {
-    self.todos.push(new ToDoFactory(toDoText));
-  };
+    self.addToDo = function(toDoText) {
+      self.todos.push(new ToDoFactory(toDoText));
+    };
 
-  self.removeToDo = function() {
-    self.todos.pop();
-  }
-}]);
+    self.removeToDo = function() {
+      self.todos.pop();
+    }
+  }]);
