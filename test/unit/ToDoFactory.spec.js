@@ -15,8 +15,8 @@ describe("ToDoFactory", function() {
     expect(toDo.completed).toBe(false);
   });
 
-  it("completes a todo", function() {
-    toDo.complete();
+  it("changes a todo's status", function() {
+    toDo.changeStatus();
     expect(toDo.completed).toBe(true);
   });
 });

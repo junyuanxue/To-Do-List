@@ -6,9 +6,9 @@ angular
       this.completed = status || false;
     };
 
-    ToDo.prototype.complete = function() {
-      this.completed = true;
+    ToDo.prototype.changeStatus = function() {
+      this.completed = !this.completed;
     };
-
+    
     return ToDo;
   }]);

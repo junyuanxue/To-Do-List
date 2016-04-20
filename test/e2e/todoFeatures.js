@@ -42,7 +42,14 @@ describe("Todos", function() {
   it("completes a todo", function() {
     browser.get("/app");
     var todo = $$("#todos p").last();
-    todo.element(by.css(".complete-todo")).click();
+    todo.element(by.css(".change-status")).click();
     expect(todo.getText()).toMatch("completed");
+  });
+
+  it("clears all completed todos", function() {
+    browser.get("/app");
+    $("#clear").click();
+    var todos = $$("#todos p");
+    expect(todos.getText()).not.toContain("completed");
   });
 });

@@ -15,5 +15,14 @@ angular
 
     self.removeToDo = function() {
       self.todos.pop();
-    }
+    };
+
+    self.clearCompleted = function() {
+      self.todos.forEach(function(todo) {
+        if (todo.completed === true) {
+          var index = self.todos.indexOf(todo);
+          self.todos.splice(index, 1);
+        }
+      });
+    };
   }]);

@@ -2,7 +2,8 @@ describe("ToDoController", function() {
   beforeEach(module("toDoApp"));
 
   var ctrl, ToDoFactory, httpBackend, ToDoService;
-  var toDoData = [{ text:"Cuddle something", completed:false },{ text:"Wakeup",completed:false }]
+  var toDoData = [{ text: "Cuddle something", completed: false },
+                  { text: "Wakeup",completed: false }]
 
   beforeEach(inject(function($controller, _ToDoFactory_, $httpBackend) {
     ctrl = $controller("ToDoController");
@@ -19,15 +20,26 @@ describe("ToDoController", function() {
     expect(ctrl.todos).toEqual([toDo1, toDo2]);
   });
 
-  it("adds a new todo to list", function(){
+  it("adds a new todo to list", function() {
     ctrl.addToDo("newtask");
     var toDo = new ToDoFactory("newtask");
     expect(ctrl.todos.pop()).toEqual(toDo);
   });
 
-  it("removes a task from list", function(){
+  it("removes a task from list", function() {
     var initalCount = ctrl.todos.length;
     ctrl.removeToDo();
     expect(ctrl.todos.length).toEqual(initalCount - 1);
+  });
+
+  it("clears all completed todos", function() {
+    ctrl.clearCompleted();
+    var completedToDos = [];
+    ctrl.todos.forEach(function(todo) {
+      if (todo.completed === true) {
+        completedToDos.push(todo)
+      }
+    });
+    expect(completedToDos.length).toEqual(0);
   });
 });
