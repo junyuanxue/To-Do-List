@@ -7,8 +7,21 @@ describe('ToDoController', function() {
     ctrl = $controller('ToDoController');
   }));
 
-  it('initialises with a toDo', function() {
-    expect(ctrl.todo).toEqual("ToDo1");
+  it('initialises with several todos', function() {
+    var todos =[ {text:'Cuddle Sunfish',completed: true},
+                  {text:'Meditate',completed: false}]
+    expect(ctrl.todos).toEqual(todos);
   });
+
+  it('adds a new todo to list', function(){
+    ctrl.addToDo('newtask');
+    expect(ctrl.todos.pop()).toEqual({text:'newtask',completed: false});
+  });
+
+  it('removes a task from list', function(){
+    var initalCount = ctrl.todos.length;
+    ctrl.removeToDo();
+    expect(ctrl.todos.length).toEqual(initalCount -1);
+  })
 
 });
