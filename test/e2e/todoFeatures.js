@@ -12,6 +12,10 @@ describe('Todos', function() {
     }
   }]);
 
+  afterEach(function() {
+    mock.teardown();
+  });
+
   it('has a title', function() {
     browser.get('/app');
     expect(browser.getTitle()).toEqual('Todos App');

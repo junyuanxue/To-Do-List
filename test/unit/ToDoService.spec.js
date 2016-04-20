@@ -1,7 +1,7 @@
 describe('ToDoService', function(){
   beforeEach(module('toDoApp'));
 
-  var httpBackend, ToDoFactory, ToDoService
+  var httpBackend, ToDoFactory, ToDoService;
   var toDoData = [{ text:'Cuddle something', completed:false },{ text:'Wakeup',completed:false }]
 
   beforeEach(inject(function(_ToDoService_, _ToDoFactory_, $httpBackend){
@@ -12,7 +12,7 @@ describe('ToDoService', function(){
 
   it('fetches the api data and processes todos', function(){
     httpBackend.expectGET('http://quiet-beach-24792.herokuapp.com/todos.json').respond(toDoData);
-    
+
     var toDo1 = new ToDoFactory('Cuddle something');
     var toDo2 = new ToDoFactory('Wakeup');
 
