@@ -27,7 +27,14 @@ describe('Todos', function() {
     var initalCount = todos.count();
     initalCount.then(function(value){
       $('#remove-todo').click();
-      expect(todos.count()).toEqual(value -1);
+      expect(todos.count()).toEqual(value - 1);
     });
+  });
+
+  it('completes a todo', function() {
+    browser.get('/app');
+    var todo = $$('#todos p').last();
+    todo.element(by.css('.complete-todo')).click();
+    expect(todo.getText()).toEqual('Meditate: completed');
   });
 });

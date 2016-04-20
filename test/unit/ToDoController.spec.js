@@ -1,15 +1,17 @@
 describe('ToDoController', function() {
   beforeEach(module('toDoApp'));
 
-  var ctrl;
+  var ctrl, ToDoFactory;
 
-  beforeEach(inject(function($controller) {
+  beforeEach(inject(function($controller, _ToDoFactory_) {
     ctrl = $controller('ToDoController');
+    ToDoFactory = _ToDoFactory_;
   }));
 
   it('initialises with several todos', function() {
-    var todos =[ {text:'Cuddle Sunfish',completed: true},
-                  {text:'Meditate',completed: false}]
+    var toDo1 = new ToDoFactory('Cuddle Sunfish', true);
+    var toDo2 = new ToDoFactory('Meditate');
+    var todos = [toDo1, toDo2];
     expect(ctrl.todos).toEqual(todos);
   });
 
@@ -21,7 +23,6 @@ describe('ToDoController', function() {
   it('removes a task from list', function(){
     var initalCount = ctrl.todos.length;
     ctrl.removeToDo();
-    expect(ctrl.todos.length).toEqual(initalCount -1);
-  })
-
+    expect(ctrl.todos.length).toEqual(initalCount - 1);
+  });
 });
