@@ -1,6 +1,18 @@
 describe('Todos', function() {
+  var mock = require('protractor-http-mock');
+
+  mock([{
+    request: {
+      path: 'http://quiet-beach-24792.herokuapp.com/todos.json',
+      method: 'GET'
+    },
+    response: {
+      data: [{ text:'Cuddle Sunfish', completed: true },
+             { text:'Meditate',completed: false }]
+    }
+  }]);
+
   it('has a title', function() {
-    // We don't need to put in the full url as we set baseUrl in our config
     browser.get('/app');
     expect(browser.getTitle()).toEqual('Todos App');
   });

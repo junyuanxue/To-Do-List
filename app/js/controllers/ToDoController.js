@@ -1,9 +1,11 @@
-toDoApp.controller('ToDoController', ['ToDoFactory', function(ToDoFactory) {
+toDoApp.controller('ToDoController', ['$http', 'ToDoService', 'ToDoFactory', function($http, ToDoService, ToDoFactory) {
+  var self = this;
 
-  var self = this
+  self.todos = [];
 
-  self.todos = [new ToDoFactory('Cuddle Sunfish', true),
-                new ToDoFactory('Meditate')];
+  ToDoService.getAll().then(function(toDoData) {
+    self.todos = toDoData;
+  });
 
   self.addToDo = function(toDoText) {
     self.todos.push(new ToDoFactory(toDoText));
@@ -12,5 +14,4 @@ toDoApp.controller('ToDoController', ['ToDoFactory', function(ToDoFactory) {
   self.removeToDo = function() {
     self.todos.pop();
   }
-
 }]);

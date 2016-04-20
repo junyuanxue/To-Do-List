@@ -1,18 +1,22 @@
 describe('ToDoController', function() {
   beforeEach(module('toDoApp'));
 
-  var ctrl, ToDoFactory;
+  var ctrl, ToDoFactory, httpBackend, ToDoService;
+  var toDoData = [{ text:'Cuddle something', completed:false },{ text:'Wakeup',completed:false }]
 
-  beforeEach(inject(function($controller, _ToDoFactory_) {
+  beforeEach(inject(function($controller, _ToDoFactory_, $httpBackend) {
     ctrl = $controller('ToDoController');
     ToDoFactory = _ToDoFactory_;
+    httpBackend = $httpBackend;
+    httpBackend.expectGET("http://quiet-beach-24792.herokuapp.com/todos.json").respond(toDoData);
+    httpBackend.flush();
   }));
 
-  it('initialises with several todos', function() {
-    var toDo1 = new ToDoFactory('Cuddle Sunfish', true);
-    var toDo2 = new ToDoFactory('Meditate');
-    var todos = [toDo1, toDo2];
-    expect(ctrl.todos).toEqual(todos);
+  it('fetches a list of todos from API', function() {
+    var toDo1 = new ToDoFactory('Cuddle something');
+    var toDo2 = new ToDoFactory('Wakeup');
+
+    expect(ctrl.todos).toEqual([toDo1, toDo2]);
   });
 
   it('adds a new todo to list', function(){
