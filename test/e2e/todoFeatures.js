@@ -25,13 +25,13 @@ describe("Todos", function() {
     browser.get("/app");
     $("#todo-text").sendKeys("Let go of Sunfish");
     $("#add-todo").click();
-    var todos = $$("#todos p");
+    var todos = $$("#todos ul li");
     expect(todos.last().getText()).toEqual("Let go of Sunfish: not completed");
   });
 
   it ("removes the last todo", function() {
     browser.get("/app");
-    var todos = $$("#todos p");
+    var todos = $$("#todos ul li");
     var initalCount = todos.count();
     initalCount.then(function(value){
       $("#remove-todo").click();
@@ -41,7 +41,7 @@ describe("Todos", function() {
 
   it("completes a todo", function() {
     browser.get("/app");
-    var todo = $$("#todos p").last();
+    var todo = $$("#todos ul li").last();
     todo.element(by.css(".change-status")).click();
     expect(todo.getText()).toMatch("completed");
   });
@@ -49,7 +49,7 @@ describe("Todos", function() {
   it("clears all completed todos", function() {
     browser.get("/app");
     $("#clear").click();
-    var todos = $$("#todos p");
+    var todos = $$("#todos ul li");
     expect(todos.getText()).not.toContain("completed");
   });
 });

@@ -7,18 +7,21 @@
     <script src="js/controllers/ToDoController.js"></script>
     <script src="js/services/ToDoFactory.js"></script>
     <script src="js/services/ToDoService.js"></script>
+    <link rel="stylesheet" type="text/css" href="skeleton.css">
     <title>Todos App</title>
   </head>
-  <body>
-    <div id="todos" ng-controller="ToDoController as controller">
+  <body class="container">
+    <article id="todos" ng-controller="ToDoController as controller">
       <input id="todo-text" type="text" ng-model="toDoText"/>
-      <button id="add-todo" ng-click="controller.addToDo(toDoText);">Add Task</button>
-      <p ng-repeat="todo in controller.todos">
-        {{todo.text}}: {{todo.completed ? "completed" : "not completed" }}
-        <input type="checkbox" class="change-status" ng-click="todo.changeStatus();">
-      </p>
-      <button id="remove-todo" ng-click="controller.removeToDo();">Remove Last Task</button>
-      <button id="clear" ng-click="controller.clearCompleted();">Clear All Completed Todos </button>
-    </div>
+      <button id="add-todo" class="button-primary" ng-click="controller.addToDo(toDoText);">Add Task</button>
+      <ul ng-repeat="todo in controller.todos">
+        <li>
+          {{todo.text}}: {{todo.completed ? "completed" : "not completed" }}
+          <input type="checkbox" class="change-status" ng-click="todo.changeStatus();">
+        </li>
+      </ul>
+      <button id="remove-todo" class="button-primary" ng-click="controller.removeToDo();">Remove Last Task</button>
+      <button id="clear" class="button-primary" ng-click="controller.clearCompleted();">Clear All Completed Todos </button>
+    </article>
   </body>
 </html>
