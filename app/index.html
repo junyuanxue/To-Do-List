@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="toDoApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/ToDoController.js"></script>
+    <script src="js/services/ToDoFactory.js"></script>
+    <script src="js/services/ToDoService.js"></script>
+    <title>Todos App</title>
+  </head>
+  <body>
+    <div id="todos" ng-controller="ToDoController as controller">
+      <input id="todo-text" type="text" ng-model="toDoText"/>
+      <button id="add-todo" ng-click="controller.addToDo(toDoText)">Add Task</button>
+      <p ng-repeat="todo in controller.todos">
+        {{todo.text}}: {{todo.completed ? "completed" : "not completed" }}
+        <input type="checkbox" class="complete-todo" ng-click="todo.complete();">
+      </p>
+      <button id="remove-todo" ng-click="controller.removeToDo()">Remove Last Task</button>
+    </div>
+  </body>
+</html>
